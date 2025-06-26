@@ -1,56 +1,57 @@
 # Aigeon AI Google Flight Search
 
-Aigeon AI Google Flight Search is a Python-based server application designed to facilitate the search for flights using Google's search capabilities. This application leverages the SERP API to provide detailed flight search results based on user-defined parameters.
+## Project Description
+
+Aigeon AI Google Flight Search is a Python-based server application designed to facilitate flight search queries using Google's flight search capabilities. This project leverages the SerpAPI to interact with Google Flights, providing users with a comprehensive tool to search for flights based on various parameters such as departure and arrival locations, travel dates, flight types, and more.
 
 ## Features Overview
 
-- **Flight Search Functionality**: Allows users to search for flights by specifying various parameters such as departure and arrival locations, travel dates, flight type, travel class, and more.
-- **Flexible Search Options**: Supports multiple search criteria including round trips, one-way, and multi-city flights.
-- **Customizable Search Parameters**: Users can customize their search by specifying the number of passengers, travel class, price limits, and more.
-- **Integration with SERP API**: Utilizes the SERP API for retrieving search results, ensuring accurate and up-to-date flight information.
+- **Flight Search Functionality**: Enables users to search for flights using a wide range of parameters.
+- **Flexible Query Parameters**: Supports multiple options for specifying departure and arrival locations, including airport codes and location identifiers.
+- **Customizable Search Options**: Allows users to define travel preferences such as travel class, number of passengers, and maximum price.
+- **Advanced Filtering**: Offers filtering options based on flight duration, number of stops, and departure/arrival times.
+- **Multi-City Flight Support**: Facilitates complex itineraries with multiple city stops.
 
 ## Main Features and Functionality
 
-- **Search Flights**: The core functionality is encapsulated in the `search_flight` function, which allows users to search for flights based on a wide range of parameters.
-- **Parameter Customization**: Users can specify detailed search parameters including:
-  - Departure and arrival airport codes or location identifiers.
-  - Outbound and return dates.
-  - Flight type (round trip, one-way, multi-city).
-  - Travel class (economy, premium economy, business, first).
-  - Number of adults, children, and infants.
-  - Sorting options for search results (e.g., price, departure time).
-  - Maximum price and flight duration constraints.
-- **Multi-City Flight Support**: Supports complex itineraries with multiple legs, allowing users to specify detailed flight paths and times.
+1. **Search Flights**: The core functionality of the application is to perform flight searches using the `search_flight` function. This function is highly customizable, allowing users to tailor their search queries to meet specific travel needs.
 
-## API Endpoints or Main Functions Description
+2. **Parameter Customization**: Users can specify a variety of parameters to refine their search results:
+   - **Departure and Arrival Locations**: Accepts both airport codes and location identifiers.
+   - **Travel Dates**: Users can set outbound and return dates for round trips.
+   - **Flight Type**: Options include round trip, one-way, and multi-city flights.
+   - **Travel Class**: Choose from economy, premium economy, business, or first class.
+   - **Passenger Details**: Specify the number of adults, children, and infants.
+   - **Price and Duration Constraints**: Set maximum price limits and flight duration preferences.
+
+3. **Advanced Search Options**: The application supports additional search parameters such as:
+   - **Sort Order**: Sort results by top flights, price, departure time, arrival time, duration, or emissions.
+   - **Stop Preferences**: Filter flights based on the number of stops.
+   - **Time Windows**: Define specific time ranges for departures and returns.
+   - **Layover and Duration Limits**: Set constraints on layover duration and total flight time.
+
+4. **Multi-City Itineraries**: The application can handle complex travel plans involving multiple destinations, allowing users to specify detailed itineraries with multiple legs.
+
+## Main Function Description
 
 ### `search_flight`
 
-The `search_flight` function is the primary tool for querying flight information. It accepts a variety of parameters to tailor the search results to the user's needs:
+The `search_flight` function is the primary tool provided by the application for querying flight information. It is designed to accept a comprehensive set of parameters that allow users to customize their flight search. Key parameters include:
 
-- **departure_id**: Specifies the departure airport code or location identifier.
-- **arrival_id**: Specifies the arrival airport code or location identifier.
-- **gl**: Country code for the Google search.
-- **hl**: Language code for the search.
-- **type**: Defines the type of flight (round trip, one-way, multi-city).
-- **outbound_date**: Date of departure.
-- **return_date**: Date of return (required for round trips).
-- **travel_class**: Class of travel (economy, business, etc.).
-- **multi_city_json**: JSON string defining multi-city flight details.
-- **adults, children, infants_in_seat, infants_on_lap**: Number of passengers.
-- **sort_by**: Sorting order of results.
-- **stops**: Number of stops allowed.
-- **bags**: Number of carry-on bags.
-- **max_price**: Maximum ticket price.
-- **outbound_times, return_times**: Time ranges for departures and returns.
-- **layover_duration**: Duration of layovers.
-- **max_duration**: Maximum flight duration.
-- **departure_token, booking_token**: Tokens for selecting specific flights or booking options.
+- **departure_id**: Specifies the departure location using airport codes or location identifiers.
+- **arrival_id**: Specifies the arrival location using airport codes or location identifiers.
+- **gl** and **hl**: Define the country and language settings for the search.
+- **type**: Determines the type of flight (round trip, one-way, or multi-city).
+- **outbound_date** and **return_date**: Set the travel dates for outbound and return flights.
+- **travel_class**: Select the desired travel class.
+- **multi_city_json**: Provides detailed itinerary information for multi-city flights.
+- **adults**, **children**, **infants_in_seat**, **infants_on_lap**: Specify the number of passengers.
+- **sort_by**: Choose the sorting order for the search results.
+- **stops**: Filter results based on the number of stops.
+- **bags**: Specify the number of carry-on bags.
+- **max_price**: Set a maximum price for the flight tickets.
+- **outbound_times** and **return_times**: Define time ranges for departures and returns.
+- **layover_duration** and **max_duration**: Set constraints on layover times and total flight duration.
+- **departure_token** and **booking_token**: Used for selecting specific flights and obtaining booking options.
 
-## Configuration Parameters Explanation
-
-The application requires configuration through environment variables, specifically:
-
-- **SERP_API_KEY**: This is a crucial environment variable that must be set to authenticate requests to the SERP API. It should be stored securely and loaded using a `.env` file.
-
-This README provides a comprehensive overview of the Aigeon AI Google Flight Search application, detailing its features, functionality, and configuration requirements. The application is designed to offer a robust and flexible solution for flight searches, catering to a wide range of user needs.
+This function is designed to be flexible and powerful, providing users with the ability to perform detailed and precise flight searches tailored to their specific travel needs.
